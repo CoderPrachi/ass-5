@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script
+			src="https://code.jquery.com/jquery-3.5.1.js"
+			integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+			crossorigin="anonymous">
+		</script>
+<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <!-- top nav bar part -->
+    <div class="container header" id="head">
+        <div class="row">
+            <div class="col-8">
+                <button class="btn btn-primary">
+                   <a href="#head"> Home</a>
+                </button>
+                <button class="btn btn-primary">
+                    <a href="#register">Register</a>
+                </button>
+                <button class="btn btn-primary">
+                    <a href="#show">Show Students</a>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- home or about part -->
+    <div class="container cont-props">
+        <div class="row">
+            <div class="col-6">
+
+                <h1>About Prachi Patil Coaching Classes</h1>
+                <p>
+                    Wellness: Improving Health <br> Improving Life<br>
+
+                    Future-focused: Building a Better Life<br>
+
+                    Right-brained: Create the Life You Love<br>
+
+                    Abundance: Turning Purpose Into Prosperity<br>
+
+                    Learning: Growing Skills <br> Achieving Happiness<br>
+
+                    Motivational: Just Live Your Best Life!<br>
+
+                </p>
+            </div>
+        </div>
+    </div>
+<!-- REgister -->
+    <div class="container registration" id="register">
+        <div class="row">
+            <div class="col-6">
+                <div class="box1">
+                    REGISTER
+                </div>
+                <h1>Register and conform your Admission Now!!!<br></h1>
+                <!-- from assignment 2...registration code -->
+                <div><label for="username">Name:</label>
+                    <input type="text" id="name" size="50" /></div>
+                <div>
+                   <label for="address">Address:</label>
+                    <input type="text" id="address"  size="50" />
+                </div> 
+                   <div><label for="clgname">College Name</label>
+                    <input type="text" id="clg"  size="50"/>
+                </div>
+                    
+                    <div><label for="mobno">Mobile No</label>
+                <input type="text" id="mobno"  size="10" maxlength="10"/></td><br/>
+            
+                </div>
+                    <div><label for="subject">Subject:</label>
+                    <select id="subject">
+                    <option selected="" value="Default">(Please select a SUBJECT)</option>
+                    <option value="c">C</option>
+                    <option value="cpp">C++</option>
+                    <option value="jv">JAVA</option>
+                    <option value="php">PHP</option>
+                    <option value="dnet">ASP.NET</option>
+                    </select>
+                
+                </div>    
+                <div><label for="email">Email:</label>
+                    <input type="email" id="mail" size="50" />
+                </div>
+                <div>
+                    <label id="gender">Sex:</label>
+                    <input type="radio" id="s" name="sex" value="Male" /><span>Male</span>
+                    <input type="radio" id="s" name="sex" value="Female" /><span>Female</span>
+                </div>
+                   <div>
+                    <label>Prefered Language:</label>
+                    <input type="checkbox" name="en" value="en" checked /><span>English</span>
+                    <input type="checkbox" name="nonen" value="noen" /><span>Hindi</span>
+                </div>
+                <div> 
+                    <button type="button" class = "btn btn-dark" id="sub">SUBMIT</button></td>
+                    
+                </div>
+             </div>
+        </div>
+    </div>
+    
+
+    <div class="container show-student" id="show">
+        <div class="row">
+            <div class="col">
+                
+                    <h4 class="text-uppercase">LIST OF PEOPLE REGISTERED:- </h4>
+                    <table id="myTable"></table>
+         
+        </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+        <!-- <script type="text/javascript">
+                    
+            // function myFunct() {
+            
+            //   var z = document.getElementById("name").value;
+            //   if (z == "")
+            //   {
+            //     alert("Name must be filled out");
+            //     return false;
+            //   }
+            //   var z = document.getElementById("email").value;
+            //   if (z == "")
+            //   {
+            //     alert("EMAIL must be filled out");
+            //     return false;
+            //   }
+            //   var n = z.includes("@");
+            //   if(n==false)
+            //   {
+            //     alert("Enter a valid Email address")
+            //     return false
+            //   }
+            //   var zz = document.getElementById("mobno").value;
+            //   if (zz == "")
+            //   {
+            //     alert("Phone Number should be filled");
+            //     return false;
+            //   }
+            //   y = parseInt(zz);
+            //   if(y>10000000000 || y <1000000000 || isNaN(zz))
+            //   {
+            //     alert("Enter a valid phone number");
+            //     return false;
+            //   }
+            //   var z = document.getElementById("clg").value;
+            //   if (z == "")
+            //   {
+            //     alert("college must be filled out");
+            //     return false;
+            //   }
+            
+            //    alert("Thank you for registering for Coaching. Soon a confirmation mail along with the trainers informations will be sent to the provided email. You can confirm you registration by clicking on Registration link.Thank you!!!!");
+            
+            
+            //   var table = document.getElementById("myTable");
+            //   var row = table.insertRow(0);
+            //   var cell1 = row.insertCell(0);
+            //   var cell2 = row.insertCell(1);
+            //   var cell3 = row.insertCell(2);
+            //   cell1.innerHTML = document.getElementById("name").value;
+            //   cell2.innerHTML = document.getElementById("email").value;
+            //   cell3.innerHTML = document.getElementById("mobno").value;
+            
+            //   document.getElementById("name").value = "";
+            //   document.getElementById("email").value = "";
+            //   document.getElementById("clg").value = "";
+            //   document.getElementById("mobno").value = "";
+            //   document.getElementById("address").value = "";
+            
+            //   document.getElementById("myCheck").checked = false;
+            //   document.getElementById("myCheck1").checked = false;
+            //   document.getElementById("myCheck2").checked = false;
+            
+            // }
+            
+            </script> -->
+</body>
+</html>
