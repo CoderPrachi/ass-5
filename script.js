@@ -1,9 +1,8 @@
-//alert("js here");
 let btnSubmit = document.querySelector("#sub");
-//alert("got id");
 
-
+btnShow = document.querySelector("#seestud");
 btnSubmit.addEventListener("click", validate);
+btnShow.addEventListener("click", showstud);
 
 function validate() {
   let address;
@@ -19,9 +18,7 @@ let mesg="";
   mobno = document.querySelector("#mobno").value;
   clgnm = document.querySelector("#clg").value;
   address = document.querySelector("#address").value;
-    //alert("validation");      
-    // alert(document.getElementById("#name"));  
-    if (name == "")
+     if (name == "")
     {
       mesg=mesg+" name required";
       //return false;
@@ -61,34 +58,44 @@ let mesg="";
       alert(mesg);
     }
     else{
-      alert("All right");
-      $.post('submit.php',{dv:10},function(data){
-        alert(data);
-        alert("in the post");
+      let arr = {nm:name,ad:address,cg:clgnm,mb:mobno,em:email};
+      let json = JSON.stringify(arr);
+      // console.log(json);
+      $.ajax({
+        url : 'http://localhost/wt-api-5/insert.php',
+        type : "POST",
+        data : json,
+        success : function(data){
+        if(data.status == false){
+           alert('not inserted...')
+          }
+          else{
+            alert('record Saved...');
+          }
+        }
       });
-      alert("back to js");
     }
+}
 
-  
-  
-    let table = document.getElementById("#myTable");
-    let row = table.insertRow(0);
-    let cell1 = row.insertCell(0);
-    let cell2 = row.insertCell(1);
-    let cell3 = row.insertCell(2);
-    cell1.innerHTML = document.getElementById("#name").value;
-    cell2.innerHTML = document.getElementById("#email").value;
-    cell3.innerHTML = document.getElementById("#mobno").value;
-  
-    document.getElementById("#name").value = "";
-    document.getElementById("#email").value = "";
-    document.getElementById("#clg").value = "";
-    document.getElementById("#mobno").value = "";
-    document.getElementById("#address").value = "";
-  
-    document.getElementById("#myCheck").checked = false;
-    document.getElementById("#myCheck1").checked = false;
-    document.getElementById("#myCheck2").checked = false;
-  
-  }
- 
+function showstud() {
+  $.ajax({
+    url : 'http://localhost/wt-api-5/show.php',
+    type : "GET",
+    success : function(data){
+    if(data.status == false){
+        $("#myTable").append("<tr><td colspan='8'><h2>"+data.Message+"</h2></td></tr>");
+      }
+      else{
+        $.each(data, function(key, value){
+          $("#myTable").append("<tr>" 
+                          + "<td style='font-size:2pts;border:2px solid wheat'><h6>" + value.name + "</h6></td>"
+                          + "<td style='font-size:2pts;border:2px solid wheat'><h6>" + value.addr + "</h6></td>"
+                          + "<td style='font-size:2pts;border:2px solid wheat'><h6>" + value.clgnm + "</h6></td>"
+                          + "<td style='font-size:2pts;border:2px solid wheat'><h6>" + value.mobile + "</h6></td>"
+                          + "<td style='font-size:2pts;border:2px solid wheat'><h6>" + value.email + "</h6></td>"
+                              );
+        });
+      }
+    }
+  });
+}
