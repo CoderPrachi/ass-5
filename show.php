@@ -1,33 +1,18 @@
 <?php
-$con=mysqli_connect("localhost","root","prachi","mydatabase");
 
-if(array_key_exists("view_btn",$_POST))
-{
-	$sql="select * from registration_details";
-	$con = mysqli_connect("localhost","root","Prachi_Patil","reg_db") or die("connection not established");
-    
-    $i=0;
+header('Content-Type: application/json');
 
-	if($con==false)
-		print("ERROR:".mysqli_connect_error());
-	else
-	{
-		$result_set=mysqli_query($con,$sql);
-		if(mysqli_num_rows($result_set)>0)
-		{
-			while(true)
-			{
-                $arr[$i]=mysqli_fetch_array($result_set);
-                $i++;
-				if($arr==false)
-					break;	
-			}			
-		}
-		else
-		{
-			print("Table is empty<br/>");
-		}
-		mysqli_close($con);
-	}
+$con = mysqli_connect("localhost","id14885796_prachi","Patil@Mitaoe123","id14885796_registration") or die("connection not established");
+
+
+$sql = "SELECT * FROM register";
+$result = mysqli_query($con,$sql) or die("SQL Query failed..");
+
+if(mysqli_num_rows($result) > 0 ){
+	$output = mysqli_fetch_all($result,MYSQLI_ASSOC);
+	echo json_encode($output);
+
+}else{
+	echo json_encode(array('Message' => 'No record found...','status' => false));
 }
 ?>
