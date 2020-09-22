@@ -1,49 +1,37 @@
 <?php
-    $name = "prachi";
-    $address = "my adresse";
-    $clg_name = "MIT";
-    $mobile = "9874737372";
-    $sub = "subject";
-    $email = "email@gamil.com";
-    $sex = "Female";
-    $lang = "English";
+    
+header('Content-Type: application/json');
+header('Access-control-Allow-Origin:*');
+header('Access-Control-Allow-Methods: POST');
+
+$data = json_decode(file_get_contents("php://input"), true);
+
+    $name = $data['nm'];
+    $address = $data['ad'];
+    $clg_name = $data['cg'];
+    $mobile = $data['mb'];
+   
+    $email =$data['em'];
+    
     try{
-        $con = mysqli_connect("localhost","root","Prachi_Patil","reg_db") or die("connection not established");
+            // $con = mysqli_connect("localhost","root","Prachi_Patil","reg_db") or die("connection not established");
+        $con = mysqli_connect("localhost","id14885796_prachi","Patil@Mitaoe123","id14885796_registration") or die("connection not established");
 
-    if($con==false){
-        print("ERROR : ".mysqli_connect_error()."<br>");
-    }
-    else{
-        $sql = "insert into registration_details value(?,?,?,?,?,?,?,?)";
-        $ps = mysqli_prepare($con, $sql);
-        if($ps!=false){
-            mysqli_stmt_bind_param($ps,"s",$name);
-            mysqli_stmt_bind_param($ps,"s",$address);
-            mysqli_stmt_bind_param($ps,"s",$clg_name);
-            mysqli_stmt_bind_param($ps,"s",$mobile);
-            mysqli_stmt_bind_param($ps,"s",$email);
-            mysqli_stmt_bind_param($ps,"s",$sex);
-            mysqli_stmt_bind_param($ps,"s",$lang);
-
-            mysqli_stmt_execute($ps);
-            
-            $n = mysqli_stmt_affected_rows($ps);
-            mysqli_stmt_close($ps);
-            mysqli_close($con);
-
-            if($n == 1){
-                print("<font face='calibri' size='5pt' color='green'>Data Saved</font>");
-
+        if($con==false){
+            echo json_encode(array('Message' => 'connection nahi zal','status' => false));
+        }
+        else{
+           $sql = "INSERT INTO `id14885796_registration`.`register`(`name`, `addr`, `clgnm`, `mobile`, `email`) VALUES ('{$name}', '{$address}', '{$clg_name}', '{$mobile}','{$email}')";
+            if(mysqli_query($con,$sql)){
+                echo json_encode(array('Message' => 'Record inserted..','status' => true));
             }
             else{
-                mysqli_close($con);
-                print("Prepared Statement is not created<br>");
+                echo json_encode(array('Message' => 'not inserted','status' => false));
             }
         }
     }
-    
-    }
     catch (Exception $ex){
-        print($ex->get_message()."<br>");
+        // print($ex->get_message()."<br>");
+        echo json_encode(array('Message' => $ex->get_message(),'status' => false));
     }
 ?>
