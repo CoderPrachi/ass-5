@@ -22,13 +22,13 @@
     <div class="container header" id="head">
         <div class="row">
             <div class="col-8">
-                <button class="btn btn-primary">
+                <button class="btn" style="border: 3px solid black;color:rgb(35, 35, 37);">
                    <a href="#head"> Home</a>
                 </button>
-                <button class="btn btn-primary">
+                <button class="btn" style="border: 3px solid black;color:rgb(35, 35, 37);">
                     <a href="#register">Register</a>
                 </button>
-                <button class="btn btn-primary">
+                <button class="btn" style="border: 3px solid black;color:rgb(35, 35, 37);">
                     <a href="#show">Show Students</a>
                 </button>
             </div>
@@ -61,6 +61,7 @@
     <div class="container registration" id="register">
         <div class="row">
             <div class="col-6">
+                <form id="fid">
                 <div class="box1">
                     REGISTER
                 </div>
@@ -80,35 +81,19 @@
                 <input type="text" id="mobno"  size="10" maxlength="10"/></td><br/>
             
                 </div>
-                    <div><label for="subject">Subject:</label>
-                    <select id="subject">
-                    <option selected="" value="Default">(Please select a SUBJECT)</option>
-                    <option value="c">C</option>
-                    <option value="cpp">C++</option>
-                    <option value="jv">JAVA</option>
-                    <option value="php">PHP</option>
-                    <option value="dnet">ASP.NET</option>
-                    </select>
                 
-                </div>    
                 <div><label for="email">Email:</label>
                     <input type="email" id="mail" size="50" />
                 </div>
-                <div>
-                    <label id="gender">Sex:</label>
-                    <input type="radio" id="s" name="sex" value="Male" /><span>Male</span>
-                    <input type="radio" id="s" name="sex" value="Female" /><span>Female</span>
-                </div>
-                   <div>
-                    <label>Prefered Language:</label>
-                    <input type="checkbox" name="en" value="en" checked /><span>English</span>
-                    <input type="checkbox" name="nonen" value="noen" /><span>Hindi</span>
-                </div>
+                
                 <div> 
                     <button type="button" class = "btn btn-dark" id="sub">SUBMIT</button></td>
-                    
+                    <button class="btn" style="border: 3px solid black;color:rgb(35, 35, 37);">
+                        <a href="#head"> Home</a>
+                     </button>
                 </div>
-             </div>
+            </form>
+            </div>
         </div>
     </div>
     
@@ -118,7 +103,23 @@
             <div class="col">
                 
                     <h4 class="text-uppercase">LIST OF PEOPLE REGISTERED:- </h4>
-                    <table id="myTable"></table>
+                    <button class="btn" style="border: 3px solid black;color:rgb(35, 35, 37);">
+                        <a href="#head"> Home</a>
+                     </button>
+                     <button class="btn" style="border: 3px solid black;color:rgb(35, 35, 37);" id="seestud">
+                        <a href="#show">CLick Here to View List</a>
+                     </button>
+                     <button class="btn" style="border: 3px solid black;color:rgb(35, 35, 37);">
+                        <a href="#register">Registration</a>
+                     </button>
+                     <center>
+                    <table id="myTable" style="margin-top: 100px;">
+                   
+                    </table>
+                </center>
+                    <div class="end-msg" style="margin-top:500px;border-top:1px solid rgba(185, 176, 176, 0.747);padding-top:10px;">
+                        <h5>copyright@prachipatil</h5>
+                    </div>
          
         </div>
         </div>
